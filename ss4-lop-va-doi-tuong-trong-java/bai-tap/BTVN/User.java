@@ -28,16 +28,26 @@ public class User {
         return age;
     }
     public void setAge(int age) {
-        this.age = age;
+        if (age >= 0 && age <= 100) {
+            this.age = age;
+        } else {
+            System.out.println("Age must be positive.");
+        }
     }
 
-    public User(){}
 
     public User(int id, String name, String email, int age) {
+        this.id = 0;
+        this.name = "Unknown";
+        this.email = "Unknown";
+        this.age = 0;
+    }
+
+    public User(int id, String name, String email) {
         this.id = id;
         this.name = name;
         this.email = email;
-        this.age = age;
+        setAge(age);
     }
 
     public String getInfo(){
